@@ -41,7 +41,14 @@
 		<tag>birt_4_9_0</tag>
 	</scm>
 
-	<developers/>
+	<developers>
+		<developer>
+			<name>Contributors to BIRT</name>
+			<email>various</email>
+			<organization>various</organization>
+			<organizationUrl>various</organizationUrl>
+		</developer>
+	</developers>
 
 	<properties>
 		<birt.version>4.9.0</birt.version>
