@@ -219,13 +219,13 @@ public class ArchiveViewTest extends TestCase {
 	}
 
 	protected int readInt(ArchiveReader reader, String name) throws IOException {
-		try (RAInputStream in = reader.getInputStream(name);) {
+		try (RAInputStream in = reader.getInputStream(name)) {
 			return in.readInt();
 		}
 	}
 
 	protected int getLength(ArchiveReader reader, String name) throws IOException {
-		try (RAInputStream in = reader.getInputStream(name);) {
+		try (RAInputStream in = reader.getInputStream(name)) {
 			return in.available();
 		}
 	}
