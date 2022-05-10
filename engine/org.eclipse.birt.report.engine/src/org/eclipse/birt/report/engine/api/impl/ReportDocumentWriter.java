@@ -280,8 +280,7 @@ public class ReportDocumentWriter implements ReportDocumentConstants {
 	}
 
 	public void saveReportletDocument(String bookmark, InstanceID iid) throws IOException {
-		RAOutputStream out = archive.createOutputStream(REPORTLET_DOCUMENT_STREAM);
-		try (out) {
+		try (RAOutputStream out = archive.createOutputStream(REPORTLET_DOCUMENT_STREAM)) {
 			IOUtil.writeInt(out, REPORTLET_DOCUMENT_VERSION_0);
 			ByteArrayOutputStream buffer = new ByteArrayOutputStream();
 			DataOutputStream s = new DataOutputStream(buffer);

@@ -215,9 +215,7 @@ public class FileReportProvider implements IReportProvider {
 
 			public void execute(final IProgressMonitor monitor) throws CoreException, IOException {
 				if (file.exists() || file.createNewFile()) {
-					OutputStream out = new BufferedOutputStream(new FileOutputStream(file), 8192 * 2);
-
-					try (out) {
+					try (OutputStream out = new BufferedOutputStream(new FileOutputStream(file), 8192 * 2)) {
 						moduleHandle.serialize(out);
 						out.flush();
 					}

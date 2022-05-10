@@ -434,8 +434,7 @@ public class ArchiveFile implements IArchiveFile {
 	}
 
 	private void zip(String src, String tgt) throws IOException {
-		FileInputStream fi = new FileInputStream(src);
-		try (fi) {
+		try (FileInputStream fi = new FileInputStream(src)) {
 			FileOutputStream fo = new FileOutputStream(tgt);
 			try {
 				GZIPOutputStream gzip = new GZIPOutputStream(fo);
@@ -453,8 +452,7 @@ public class ArchiveFile implements IArchiveFile {
 	}
 
 	protected void unzip(String src, String tgt) throws IOException {
-		FileInputStream fi = new FileInputStream(src);
-		try (fi) {
+		try (FileInputStream fi = new FileInputStream(src)) {
 			FileOutputStream fo = new FileOutputStream(tgt);
 			try {
 				GZIPInputStream gzip = new GZIPInputStream(fi);

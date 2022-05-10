@@ -305,8 +305,7 @@ public class URLClassLoader extends java.net.URLClassLoader {
 		@Override
 		Resource loadResource(String name) throws IOException {
 			URL url = new URL(baseUrl, name);
-			InputStream in = url.openStream();
-			try (in) {
+			try (InputStream in = url.openStream()) {
 				final byte[] bytes = loadStream(in);
 				return new Resource() {
 
@@ -374,8 +373,7 @@ public class URLClassLoader extends java.net.URLClassLoader {
 			if (jarFile != null) {
 				final JarEntry entry = jarFile.getJarEntry(name);
 				if (entry != null) {
-					InputStream in = jarFile.getInputStream(entry);
-					try (in) {
+					try (InputStream in = jarFile.getInputStream(entry)) {
 						final byte[] bytes = loadStream(in);
 						return new Resource() {
 
@@ -463,8 +461,7 @@ public class URLClassLoader extends java.net.URLClassLoader {
 		Resource loadResource(String name) throws IOException {
 			File file = new File(baseDir, name.replace('/', File.separatorChar));
 			if (file.exists()) {
-				FileInputStream in = new FileInputStream(file);
-				try (in) {
+				try (FileInputStream in = new FileInputStream(file)) {
 					final byte[] bytes = loadStream(in);
 					return new Resource() {
 

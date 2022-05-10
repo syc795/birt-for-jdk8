@@ -120,7 +120,7 @@ public class AttributeAdapterFactory extends AdapterFactoryImpl {
 	 *
 	 * @generated
 	 */
-	protected AttributeSwitch<Adapter> modelSwitch = new AttributeSwitch<>() {
+	protected AttributeSwitch<Adapter> modelSwitch = new AttributeSwitch<Adapter>() {
 
 		@Override
 		public Adapter caseAccessibilityValue(AccessibilityValue object) {

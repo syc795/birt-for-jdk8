@@ -79,8 +79,7 @@ public class BufferTest extends TestCase {
 	}
 
 	static void testWriteByte(ArchiveWriter writer) throws IOException {
-		RAOutputStream out = writer.createOutputStream(ENTRY_NAME);
-		try (out) {
+		try (RAOutputStream out = writer.createOutputStream(ENTRY_NAME)) {
 			for (int i = 0; i < LENGTH; i++) {
 				out.write(i);
 			}
@@ -88,8 +87,7 @@ public class BufferTest extends TestCase {
 	}
 
 	static void testReadByte(ArchiveReader reader) throws IOException {
-		RAInputStream in = reader.getInputStream(ENTRY_NAME);
-		try (in) {
+		try (RAInputStream in = reader.getInputStream(ENTRY_NAME)) {
 			for (int i = 0; i < LENGTH; i++) {
 				int v = in.read();
 			}
@@ -116,8 +114,7 @@ public class BufferTest extends TestCase {
 	}
 
 	static void testWriteInteger(ArchiveWriter writer) throws IOException {
-		RAOutputStream out = writer.createOutputStream(ENTRY_NAME);
-		try (out) {
+		try (RAOutputStream out = writer.createOutputStream(ENTRY_NAME)) {
 			int length = LENGTH / 4;
 			for (int i = 0; i < length; i++) {
 				out.writeInt(i);
@@ -126,8 +123,7 @@ public class BufferTest extends TestCase {
 	}
 
 	static void testReadInteger(ArchiveReader reader) throws IOException {
-		RAInputStream in = reader.getInputStream(ENTRY_NAME);
-		try (in) {
+		try (RAInputStream in = reader.getInputStream(ENTRY_NAME)) {
 			int count = 0;
 			try {
 				while (true) {
@@ -161,8 +157,7 @@ public class BufferTest extends TestCase {
 	}
 
 	static void testWriteLong(ArchiveWriter writer) throws IOException {
-		RAOutputStream out = writer.createOutputStream(ENTRY_NAME);
-		try (out) {
+		try (RAOutputStream out = writer.createOutputStream(ENTRY_NAME)) {
 			int length = LENGTH / 8;
 			for (int i = 0; i < length; i++) {
 				out.writeLong(i);
@@ -171,8 +166,7 @@ public class BufferTest extends TestCase {
 	}
 
 	static void testReadLong(ArchiveReader reader) throws IOException {
-		RAInputStream in = reader.getInputStream(ENTRY_NAME);
-		try (in) {
+		try (RAInputStream in = reader.getInputStream(ENTRY_NAME)) {
 			int count = 0;
 			try {
 				while (true) {
@@ -209,8 +203,7 @@ public class BufferTest extends TestCase {
 	static int[] sizes = { 1, 7, 13, 31, 61, 113, 251, 509, 1021, 2039, 4091, 4093 };
 
 	static void testWriteBytes(ArchiveWriter writer) throws IOException {
-		RAOutputStream out = writer.createOutputStream(ENTRY_NAME);
-		try (out) {
+		try (RAOutputStream out = writer.createOutputStream(ENTRY_NAME)) {
 			byte[] data = new byte[8192];
 			int length = 0;
 			int count = 0;
@@ -224,8 +217,7 @@ public class BufferTest extends TestCase {
 	}
 
 	static void testReadBytes(ArchiveReader reader) throws IOException {
-		RAInputStream in = reader.getInputStream(ENTRY_NAME);
-		try (in) {
+		try (RAInputStream in = reader.getInputStream(ENTRY_NAME)) {
 
 			byte[] data = new byte[8192];
 			int length = 0;

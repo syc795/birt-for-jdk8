@@ -25,8 +25,7 @@ public class BTreeCursorTest extends TestCase {
 	@Test
 	public void testCursor() throws Exception {
 		new File("./utest/btree.dat").delete();
-		FileBTreeFile file = new FileBTreeFile("./utest/btree.dat");
-		try (file) {
+		try (FileBTreeFile file = new FileBTreeFile("./utest/btree.dat")) {
 			BTreeOption<Integer, String> option = new BTreeOption<>();
 			option.setFile(file, true);
 			BTree<Integer, String> btree = new BTree<>(option);

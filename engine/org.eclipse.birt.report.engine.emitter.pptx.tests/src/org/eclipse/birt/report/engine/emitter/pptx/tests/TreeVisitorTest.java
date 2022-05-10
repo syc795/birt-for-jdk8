@@ -82,7 +82,7 @@ public class TreeVisitorTest extends TreeVisitor<String> {
 		}
 
 		public TreeNode skipRow(TreeNode node, final int count) {
-			IFilter<String> ifilter = new IFilter<>() {
+			IFilter<String> ifilter = new IFilter<String>() {
 
 				int rowCount = 0;
 

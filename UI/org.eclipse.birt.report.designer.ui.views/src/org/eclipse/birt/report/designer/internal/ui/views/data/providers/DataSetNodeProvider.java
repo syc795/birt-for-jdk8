@@ -43,7 +43,7 @@ import com.ibm.icu.text.Collator;
  */
 public class DataSetNodeProvider extends DefaultNodeProvider {
 
-	private static Comparator<ResultSetColumnHandle> comp = new Comparator<>() {
+	private static Comparator<ResultSetColumnHandle> comp = new Comparator<ResultSetColumnHandle>() {
 
 		private Collator collator = Collator.getInstance();
 

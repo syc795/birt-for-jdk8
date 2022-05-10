@@ -137,8 +137,7 @@ public class BTreeTest extends BTreeTestCase {
 	@Test
 	public void testDuplicate() throws Exception {
 		new File("./utest/btree.dat").delete();
-		FileBTreeFile file = new FileBTreeFile("./utest/btree.dat");
-		try (file) {
+		try (FileBTreeFile file = new FileBTreeFile("./utest/btree.dat")) {
 			BTreeOption<String, Integer> option = new BTreeOption<>();
 			option.setHasValue(true);
 			option.setAllowDuplicate(true);
@@ -188,8 +187,7 @@ public class BTreeTest extends BTreeTestCase {
 	@Test
 	public void testHugeKey() throws Exception {
 		new File("./utest/btree.dat").delete();
-		FileBTreeFile file = new FileBTreeFile("./utest/btree.dat");
-		try (file) {
+		try (FileBTreeFile file = new FileBTreeFile("./utest/btree.dat")) {
 			BTreeOption<String, Object> option = new BTreeOption<>();
 			option.setHasValue(false);
 			option.setFile(file, true);
@@ -234,8 +232,7 @@ public class BTreeTest extends BTreeTestCase {
 	@Test
 	public void testHugeValue() throws Exception {
 		new File("./utest/btree.dat").delete();
-		FileBTreeFile file = new FileBTreeFile("./utest/btree.dat");
-		try (file) {
+		try (FileBTreeFile file = new FileBTreeFile("./utest/btree.dat")) {
 			BTreeOption<Integer, char[]> option = new BTreeOption<>();
 			option.setHasValue(true);
 			option.setAllowDuplicate(false);
@@ -292,8 +289,7 @@ public class BTreeTest extends BTreeTestCase {
 	public void testHugeNumberOfEntries() throws Exception {
 		int ENTRY_COUNT = 999999; // 1M
 		new File("./utest/btree.dat").delete();
-		FileBTreeFile file = new FileBTreeFile("./utest/btree.dat");
-		try (file) {
+		try (FileBTreeFile file = new FileBTreeFile("./utest/btree.dat")) {
 			BTreeOption<String, String> option = new BTreeOption<>();
 			option.setHasValue(true);
 			option.setFile(file, true);

@@ -95,8 +95,7 @@ public class UpgradeArchiveTest extends TestCase {
 	}
 
 	protected void saveResource(String resource, String file) throws IOException {
-		InputStream in = getClass().getResourceAsStream(resource);
-		try (in) {
+		try (InputStream in = getClass().getResourceAsStream(resource)) {
 			OutputStream out = new FileOutputStream(file);
 			try {
 				byte[] buffer = new byte[4096];

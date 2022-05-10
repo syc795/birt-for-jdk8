@@ -24,7 +24,7 @@ package org.eclipse.birt.report.model.core;
 
 public class JavaScriptExecutionStatus {
 
-	private static final ThreadLocal<Boolean> CURRENT = new ThreadLocal<>() {
+	private static final ThreadLocal<Boolean> CURRENT = new ThreadLocal<Boolean>() {
 
 		@Override
 		protected Boolean initialValue() {

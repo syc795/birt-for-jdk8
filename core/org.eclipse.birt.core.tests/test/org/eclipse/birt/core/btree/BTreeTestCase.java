@@ -30,8 +30,7 @@ abstract public class BTreeTestCase extends TestCase {
 
 	BTree createBTree() throws Exception {
 		BTree btree = new BTree();
-		InputStream in = this.getClass().getClassLoader().getResourceAsStream(BTREE_INPUT_RESOURCE);
-		try (in) {
+		try (InputStream in = this.getClass().getClassLoader().getResourceAsStream(BTREE_INPUT_RESOURCE)) {
 			BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 			String line = reader.readLine();
 			while (line != null) {

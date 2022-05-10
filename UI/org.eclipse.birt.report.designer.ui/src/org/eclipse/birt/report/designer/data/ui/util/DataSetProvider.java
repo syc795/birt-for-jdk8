@@ -75,7 +75,7 @@ public final class DataSetProvider {
 	private static DataSetProvider instance = null;
 
 	// column hash table
-	private Map<DataSetHandle, DataSetViewData[]> htColumns = new LinkedHashMap<>(10,
+	private Map<DataSetHandle, DataSetViewData[]> htColumns = new LinkedHashMap<DataSetHandle, DataSetViewData[]>(10,
 			(float) 0.75, true) {
 
 		private static final long serialVersionUID = 4685315474104939633L;

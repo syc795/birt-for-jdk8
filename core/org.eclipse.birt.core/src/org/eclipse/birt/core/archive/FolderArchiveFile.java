@@ -67,8 +67,7 @@ public class FolderArchiveFile implements IArchiveFile {
 		String meta = ArchiveUtil.getFullPath(folderName, METEDATA);
 		File file = new File(meta);
 		if (file.exists() && file.isFile()) {
-			DataInputStream data = new DataInputStream(new FileInputStream(file));
-			try (data) {
+			try (DataInputStream data = new DataInputStream(new FileInputStream(file))) {
 				properties = (Map<String, String>) IOUtil.readMap(data);
 			}
 		}
@@ -78,8 +77,7 @@ public class FolderArchiveFile implements IArchiveFile {
 		// serialize meta data into .metedata file
 		String meta = ArchiveUtil.getFullPath(folderName, METEDATA);
 		File file = new File(meta);
-		DataOutputStream data = new DataOutputStream(new FileOutputStream(file));
-		try (data) {
+		try (DataOutputStream data = new DataOutputStream(new FileOutputStream(file))) {
 			IOUtil.writeMap(data, this.properties);
 		}
 	}

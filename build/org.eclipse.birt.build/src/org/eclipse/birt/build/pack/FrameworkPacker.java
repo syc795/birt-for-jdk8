@@ -151,8 +151,7 @@ public class FrameworkPacker {
 
 	protected File createTempFile(BundleEntry entry) throws IOException {
 		File tmpFile = File.createTempFile("zip", ".zip");
-		FileOutputStream output = new FileOutputStream(tmpFile);
-		try (output) {
+		try (FileOutputStream output = new FileOutputStream(tmpFile)) {
 			InputStream input = entry.getInputStream();
 			try {
 				copyStream(input, output);
@@ -202,8 +201,7 @@ public class FrameworkPacker {
 		}
 		existingEntries.add(path);
 
-		InputStream input = bundleEntry.getInputStream();
-		try (input) {
+		try (InputStream input = bundleEntry.getInputStream()) {
 			ZipEntry zipEntry = new ZipEntry(bundleEntry.getName());
 			zipEntry.setTime(bundleEntry.getTime());
 			zipEntry.setSize(bundleEntry.getSize());
@@ -241,8 +239,7 @@ public class FrameworkPacker {
 			tgtEntry.setTime(srcEntry.getTime());
 			output.putNextEntry(tgtEntry);
 			try {
-				InputStream input = zipFile.getInputStream(srcEntry);
-				try (input) {
+				try (InputStream input = zipFile.getInputStream(srcEntry)) {
 					copyStream(input, output);
 				}
 			} finally {

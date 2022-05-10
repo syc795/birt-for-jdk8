@@ -60,15 +60,13 @@ public class DteMetaInfoIOUtil {
 		ArrayList result = new ArrayList();
 
 		if (archive.exists(ReportDocumentConstants.DATA_META_STREAM)) {
-			InputStream in = archive.getStream(ReportDocumentConstants.DATA_META_STREAM);
-			try (in) {
+			try (InputStream in = archive.getStream(ReportDocumentConstants.DATA_META_STREAM)) {
 				loadDteMetaInfo(result, new DataInputStream(in));
 			}
 		}
 
 		if (archive.exists(ReportDocumentConstants.DATA_SNAP_META_STREAM)) {
-			InputStream in = archive.getStream(ReportDocumentConstants.DATA_SNAP_META_STREAM);
-			try (in) {
+			try (InputStream in = archive.getStream(ReportDocumentConstants.DATA_SNAP_META_STREAM)) {
 				loadDteMetaInfo(result, new DataInputStream(in));
 			}
 		}
@@ -80,13 +78,11 @@ public class DteMetaInfoIOUtil {
 		ArrayList result = new ArrayList();
 
 		if (archive.exists(ReportDocumentConstants.DATA_SNAP_META_STREAM)) {
-			InputStream in = archive.getStream(ReportDocumentConstants.DATA_SNAP_META_STREAM);
-			try (in) {
+			try (InputStream in = archive.getStream(ReportDocumentConstants.DATA_SNAP_META_STREAM)) {
 				loadDteMetaInfo(result, new DataInputStream(in));
 			}
 		} else if (archive.exists(ReportDocumentConstants.DATA_META_STREAM)) {
-			InputStream in = archive.getStream(ReportDocumentConstants.DATA_META_STREAM);
-			try (in) {
+			try (InputStream in = archive.getStream(ReportDocumentConstants.DATA_META_STREAM)) {
 				loadDteMetaInfo(result, new DataInputStream(in));
 			}
 		}

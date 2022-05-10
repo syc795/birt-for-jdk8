@@ -110,8 +110,7 @@ public class PackTask extends Task {
 				}
 			}
 
-			ZipOutputStream zipOutput = new ZipOutputStream(new FileOutputStream(output));
-			try (zipOutput) {
+			try (ZipOutputStream zipOutput = new ZipOutputStream(new FileOutputStream(output))) {
 				packer.pack(zipOutput);
 				// write the manifest
 

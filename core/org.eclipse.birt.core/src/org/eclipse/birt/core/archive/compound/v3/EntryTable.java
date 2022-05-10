@@ -50,8 +50,7 @@ public class EntryTable {
 		try {
 			byte[] bytes = new byte[(int) file.length()];
 			file.read(bytes, 0, bytes.length);
-			DataInputStream in = new DataInputStream(new ByteArrayInputStream(bytes));
-			try (in) {
+			try (DataInputStream in = new DataInputStream(new ByteArrayInputStream(bytes))) {
 				while (true) {
 					String name = in.readUTF();
 					int inode = in.readInt();

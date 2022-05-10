@@ -184,8 +184,7 @@ public class ArchiveViewTest extends TestCase {
 	public void testFlush() throws IOException {
 		ArchiveWriter writer = new ArchiveWriter(ARCHIVE_FILE);
 		try {
-			RAOutputStream out = writer.createOutputStream("/test");
-			try (out) {
+			try (RAOutputStream out = writer.createOutputStream("/test")) {
 				out.writeInt(15);
 			}
 		} finally {
@@ -220,15 +219,13 @@ public class ArchiveViewTest extends TestCase {
 	}
 
 	protected int readInt(ArchiveReader reader, String name) throws IOException {
-		RAInputStream in = reader.getInputStream(name);
-		try (in) {
+		try (RAInputStream in = reader.getInputStream(name);) {
 			return in.readInt();
 		}
 	}
 
 	protected int getLength(ArchiveReader reader, String name) throws IOException {
-		RAInputStream in = reader.getInputStream(name);
-		try (in) {
+		try (RAInputStream in = reader.getInputStream(name);) {
 			return in.available();
 		}
 	}

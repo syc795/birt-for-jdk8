@@ -28,8 +28,7 @@ import org.xml.sax.SAXException;
 public class FontConfigReader {
 
 	public FontMappingConfig parseConfig(URL url) throws IOException, ParserConfigurationException, SAXException {
-		InputStream input = url.openStream();
-		try (input) {
+		try (InputStream input = url.openStream()) {
 			FontMappingConfig config = new FontMappingConfig();
 			InputSource source = new InputSource(url.openStream());
 			SAXParser parser = CommonUtil.createSAXParser();

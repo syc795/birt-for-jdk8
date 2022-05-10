@@ -390,8 +390,7 @@ public abstract class StyleManagerUtils {
 	public byte[] downloadImage(URLConnection conn) {
 		try {
 			int contentLength = conn.getContentLength();
-			InputStream imageStream = conn.getInputStream();
-			try (imageStream) {
+			try (InputStream imageStream = conn.getInputStream()) {
 				return streamToByteArray(imageStream, contentLength);
 			}
 		} catch (IOException ex) {

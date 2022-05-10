@@ -193,8 +193,7 @@ public class ReportDocumentReader implements IReportletDocument, ReportDocumentC
 			Object lock = archive.lock(CORE_STREAM);
 			try {
 				synchronized (lock) {
-					RAInputStream in = archive.getStream(CORE_STREAM);
-					try (in) {
+					try (RAInputStream in = archive.getStream(CORE_STREAM)) {
 						DataInputStream di = new DataInputStream(in);
 
 						// check the document version and core stream version
@@ -265,8 +264,7 @@ public class ReportDocumentReader implements IReportletDocument, ReportDocumentC
 				documentInfo.pageCount = pageHintReader.getTotalPage();
 			}
 		} else {
-			RAInputStream in = archive.getStream(CHECKPOINT_STREAM);
-			try (in) {
+			try (RAInputStream in = archive.getStream(CHECKPOINT_STREAM)) {
 				DataInputStream di = new DataInputStream(in);
 				documentInfo.checkpoint = IOUtil.readInt(di);
 				documentInfo.pageCount = IOUtil.readLong(di);
@@ -328,8 +326,7 @@ public class ReportDocumentReader implements IReportletDocument, ReportDocumentC
 		Object lock = archive.lock(CORE_STREAM);
 		try {
 			synchronized (lock) {
-				RAInputStream in = archive.getStream(CORE_STREAM);
-				try (in) {
+				try (RAInputStream in = archive.getStream(CORE_STREAM)) {
 					DataInputStream di = new DataInputStream(in);
 
 					// check the document version and core stream version
@@ -664,8 +661,7 @@ public class ReportDocumentReader implements IReportletDocument, ReportDocumentC
 
 		try {
 			if (archive.exists(streamName)) {
-				InputStream stream = archive.getStream(streamName);
-				try (stream) {
+				try (InputStream stream = archive.getStream(streamName)) {
 					String name = systemId;
 					if (name == null) {
 						name = archive.getName();
@@ -1311,8 +1307,7 @@ public class ReportDocumentReader implements IReportletDocument, ReportDocumentC
 		}
 
 		try {
-			RAInputStream is = archive.getStream(CONTENT_STREAM);
-			try (is) {
+			try (RAInputStream is = archive.getStream(CONTENT_STREAM)) {
 				ReportContentReaderV3 reader = new ReportContentReaderV3(new ReportContent(), is,
 						applicationClassLoader);
 				try {
@@ -1355,8 +1350,7 @@ public class ReportDocumentReader implements IReportletDocument, ReportDocumentC
 	private boolean loadReportletStream() throws IOException {
 		if (isReportlet == null) {
 			if (archive.exists(REPORTLET_DOCUMENT_STREAM)) {
-				RAInputStream in = archive.getInputStream(REPORTLET_DOCUMENT_STREAM);
-				try (in) {
+				try (RAInputStream in = archive.getInputStream(REPORTLET_DOCUMENT_STREAM)) {
 					int version = in.readInt();
 					if (version != REPORTLET_DOCUMENT_VERSION_0) {
 						throw new IOException("unsupported reportlet document " + version);

@@ -53,8 +53,7 @@ abstract public class BundleEntry {
 	}
 
 	public byte[] getBytes() throws IOException {
-		InputStream in = getInputStream();
-		try (in) {
+		try (InputStream in = getInputStream()) {
 
 			ByteArrayOutputStream out = new ByteArrayOutputStream(4096);
 			byte[] buffer = new byte[4096];

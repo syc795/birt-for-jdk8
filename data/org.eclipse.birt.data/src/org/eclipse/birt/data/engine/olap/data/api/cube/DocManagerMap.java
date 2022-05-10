@@ -31,7 +31,7 @@ import org.eclipse.birt.data.engine.olap.data.document.IDocumentManager;
 public class DocManagerMap {
 	private static DocManagerMap instance = new DocManagerMap();
 
-	private ThreadLocal<Map> tmap = new ThreadLocal<>() {
+	private ThreadLocal<Map> tmap = new ThreadLocal<Map>() {
 
 		@Override
 		protected Map initialValue() {

@@ -77,7 +77,7 @@ public class RadarTypeAdapterFactory extends AdapterFactoryImpl {
 	 *
 	 * @generated
 	 */
-	protected RadarTypeSwitch<Adapter> modelSwitch = new RadarTypeSwitch<>() {
+	protected RadarTypeSwitch<Adapter> modelSwitch = new RadarTypeSwitch<Adapter>() {
 
 		@Override
 		public Adapter caseRadarSeries(RadarSeries object) {

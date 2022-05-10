@@ -158,8 +158,7 @@ class SaxParser extends DefaultHandler {
 			XMLReader xmlReader = XMLReaderFactory.createXMLReader();
 			xmlReader.setContentHandler(this);
 			xmlReader.setErrorHandler(this);
-			InputStream is = new BufferedInputStream(this.dbConfig.getConfigURL().openStream());
-			try (is) {
+			try (InputStream is = new BufferedInputStream(this.dbConfig.getConfigURL().openStream())) {
 				InputSource source = new InputSource(is);
 				source.setEncoding(source.getEncoding());
 				xmlReader.parse(source);

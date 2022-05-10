@@ -43,8 +43,7 @@ public class IndexReader implements IndexConstants {
 
 	public IndexReader(IDocArchiveReader archive, String name) throws IOException {
 		if (archive.exists(name)) {
-			RAInputStream input = archive.getInputStream(name);
-			try (input) {
+			try (RAInputStream input = archive.getInputStream(name)) {
 				int version = readVersion(input.readInt(), name);
 
 				switch (version) {

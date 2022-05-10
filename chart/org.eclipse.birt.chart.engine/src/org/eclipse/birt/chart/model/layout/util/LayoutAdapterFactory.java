@@ -81,7 +81,7 @@ public class LayoutAdapterFactory extends AdapterFactoryImpl {
 	 *
 	 * @generated
 	 */
-	protected LayoutSwitch<Adapter> modelSwitch = new LayoutSwitch<>() {
+	protected LayoutSwitch<Adapter> modelSwitch = new LayoutSwitch<Adapter>() {
 
 		@Override
 		public Adapter caseBlock(Block object) {

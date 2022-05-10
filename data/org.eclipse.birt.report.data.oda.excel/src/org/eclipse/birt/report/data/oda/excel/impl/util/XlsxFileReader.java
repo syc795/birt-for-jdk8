@@ -77,8 +77,7 @@ public class XlsxFileReader {
 		StylesTable st = reader.getStylesTable();
 
 		XMLReader parser = fetchSheetParser(st, sst, callback, xlsxRowsToRead);
-		BufferedInputStream sheet = new BufferedInputStream(reader.getSheet(rid));
-		try (sheet) {
+		try (BufferedInputStream sheet = new BufferedInputStream(reader.getSheet(rid))) {
 			InputSource sheetSource = new InputSource(sheet);
 			parser.parse(sheetSource);
 		}

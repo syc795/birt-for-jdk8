@@ -395,7 +395,7 @@ public class BTree<K, V> implements BTreeConstants {
 	}
 
 	// cache used by the btree
-	private LinkedHashMap<Integer, BTreeNode<K, V>> nodeCaches = new LinkedHashMap<>(8, 0.75f,
+	private LinkedHashMap<Integer, BTreeNode<K, V>> nodeCaches = new LinkedHashMap<Integer, BTreeNode<K, V>>(8, 0.75f,
 			true) {
 
 		private static final long serialVersionUID = 1L;
@@ -446,8 +446,7 @@ public class BTree<K, V> implements BTreeConstants {
 	};
 
 	private void writeNode(BTreeNode<K, V> node) throws IOException {
-		NodeOutputStream out = new NodeOutputStream(file, node.getUsedBlocks());
-		try (out) {
+		try (NodeOutputStream out = new NodeOutputStream(file, node.getUsedBlocks())) {
 			DataOutput output = new DataOutputStream(out);
 			output.writeInt(node.getNodeType());
 			node.write(output);
@@ -467,8 +466,7 @@ public class BTree<K, V> implements BTreeConstants {
 					CoreMessages.getFormattedString(ResourceConstants.CANNOT_LOAD_NODE, new Object[] { nodeId }));
 		}
 
-		NodeInputStream in = new NodeInputStream(file, nodeId);
-		try (in) {
+		try (NodeInputStream in = new NodeInputStream(file, nodeId)) {
 			DataInput input = new DataInputStream(in);
 			int nodeType = input.readInt();
 			switch (nodeType) {

@@ -130,8 +130,7 @@ public class ArchiveFlushTest extends TestCase {
 		try {
 			ArchiveWriter writer = new ArchiveWriter(af);
 			for (int i = 0; i < 1024; i++) {
-				RAOutputStream stream = writer.createOutputStream("stream_" + i);
-				try (stream) {
+				try (RAOutputStream stream = writer.createOutputStream("stream_" + i)) {
 					stream.writeInt(i);
 				}
 			}

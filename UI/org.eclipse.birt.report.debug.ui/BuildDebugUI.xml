@@ -72,7 +72,7 @@
 	<property name="eclipse.home" location="." />
 
 	<!--properties -->
-	<property name="dir.src" location="src" />
+	<property name="dir.src" location="nosrc" />
 	<property name="dir.bin" location="temp.folder" />
 	<property name="module.name" value="org.eclipse.birt.report.debug.ui" />
 	<property name="viewer.dir" value="../org.eclipse.birt.report.viewer" />

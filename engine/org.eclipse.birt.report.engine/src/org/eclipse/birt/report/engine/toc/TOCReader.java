@@ -99,8 +99,7 @@ public class TOCReader implements ITOCReader, ITOCConstants {
 	}
 
 	static String getVersion(IDocArchiveReader archive) throws IOException {
-		RAInputStream in = archive.getInputStream(TOC_STREAM);
-		try (in) {
+		try (RAInputStream in = archive.getInputStream(TOC_STREAM)) {
 			return getVersion(in);
 		}
 	}

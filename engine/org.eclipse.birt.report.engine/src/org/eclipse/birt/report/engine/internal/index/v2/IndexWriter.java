@@ -78,8 +78,7 @@ public class IndexWriter implements IndexConstants {
 
 	void close() throws IOException {
 		if (btree == null) {
-			RAOutputStream stream = archive.createOutputStream(name);
-			try (stream) {
+			try (RAOutputStream stream = archive.createOutputStream(name)) {
 				DataOutputStream output = new DataOutputStream(stream);
 				if (type == BTreeMap.LONG_VALUE) {
 					IOUtil.writeInt(output, VERSION_0);

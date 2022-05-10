@@ -145,8 +145,7 @@ public class PDFImageLM extends PDFLeafItemLM {
 			URL url = design.findResource(content.getURI(), IResourceLocator.IMAGE,
 					content.getReportContent().getReportContext() == null ? null
 							: content.getReportContent().getReportContext().getAppContext());
-			InputStream in = url.openStream();
-			try (in) {
+			try (InputStream in = url.openStream()) {
 				byte[] buffer = new byte[in.available()];
 				in.read(buffer);
 				image = Image.getInstance(buffer);

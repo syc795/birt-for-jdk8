@@ -87,8 +87,7 @@ public class ReportRunner {
 	protected long renderTime;
 
 	private static byte[] getBytesFromFile(File file) throws IOException {
-		InputStream is = new FileInputStream(file);
-		try (is) {
+		try (InputStream is = new FileInputStream(file)) {
 			byte[] data = new byte[(int) file.length()];
 			int offset = 0;
 			int read = 0;

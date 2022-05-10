@@ -29,8 +29,8 @@ public class BTreeMultipleThreadTest extends TestCase {
 	@Test
 	public void testCursor() throws Exception {
 		new File("./utest/btree.dat").delete();
-		FileBTreeFile file = new FileBTreeFile("./utest/btree.dat");
-		try (file) {
+
+		try (FileBTreeFile file = new FileBTreeFile("./utest/btree.dat")) {
 			BTreeOption<String, String> option = new BTreeOption<>();
 			option.setFile(file, true);
 			BTree<String, String> btree = new BTree<>(option);

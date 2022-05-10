@@ -79,7 +79,7 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 *
 	 * @generated
 	 */
-	protected ModelSwitch<Adapter> modelSwitch = new ModelSwitch<>() {
+	protected ModelSwitch<Adapter> modelSwitch = new ModelSwitch<Adapter>() {
 
 		@Override
 		public Adapter caseChart(Chart object) {

@@ -53,8 +53,7 @@ public class TestPPTX2PNG {
 		}
 		new File(fileName).getParentFile().mkdirs();
 		BufferedInputStream bi = new BufferedInputStream(in);
-		FileOutputStream fi = new FileOutputStream(fileName);
-		try (fi) {
+		try (FileOutputStream fi = new FileOutputStream(fileName)) {
 			byte[] buffer = new byte[4096];
 			int size = bi.read(buffer);
 			while (size > 0) {

@@ -1040,7 +1040,7 @@ public class JDBCSelectionPageHelper {
 	// Used inside TestConnection, which is executed by a separate thread
 	// To avoid invalid thread access, get value with UI thread
 	private String getJDBCUrl() {
-		GetSyncResultRunnable<String> getJDBCUrl = new GetSyncResultRunnable<>() {
+		GetSyncResultRunnable<String> getJDBCUrl = new GetSyncResultRunnable<String>() {
 			@Override
 			public void run() {
 				result = jdbcUrl == null ? null : jdbcUrl.getText();
@@ -1051,7 +1051,7 @@ public class JDBCSelectionPageHelper {
 	}
 
 	private String getUserID() {
-		GetSyncResultRunnable<String> getUserName = new GetSyncResultRunnable<>() {
+		GetSyncResultRunnable<String> getUserName = new GetSyncResultRunnable<String>() {
 			@Override
 			public void run() {
 				result = userName == null ? null : userName.getText();
@@ -1062,7 +1062,7 @@ public class JDBCSelectionPageHelper {
 	}
 
 	private String getPassWD() {
-		GetSyncResultRunnable<String> getPassWD = new GetSyncResultRunnable<>() {
+		GetSyncResultRunnable<String> getPassWD = new GetSyncResultRunnable<String>() {
 			@Override
 			public void run() {
 				result = password == null ? null : password.getText();
@@ -1073,7 +1073,7 @@ public class JDBCSelectionPageHelper {
 	}
 
 	private String getDriverName() {
-		GetSyncResultRunnable<String> getDriverName = new GetSyncResultRunnable<>() {
+		GetSyncResultRunnable<String> getDriverName = new GetSyncResultRunnable<String>() {
 			@Override
 			public void run() {
 				result = getSelectedDriverClassName();
@@ -1084,7 +1084,7 @@ public class JDBCSelectionPageHelper {
 	}
 
 	private String getJNDIName() {
-		GetSyncResultRunnable<String> getJNDINameValue = new GetSyncResultRunnable<>() {
+		GetSyncResultRunnable<String> getJNDINameValue = new GetSyncResultRunnable<String>() {
 			@Override
 			public void run() {
 				result = getODAJndiName();

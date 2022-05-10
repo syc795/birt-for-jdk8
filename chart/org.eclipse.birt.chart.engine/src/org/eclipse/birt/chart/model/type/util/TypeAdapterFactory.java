@@ -86,7 +86,7 @@ public class TypeAdapterFactory extends AdapterFactoryImpl {
 	 *
 	 * @generated
 	 */
-	protected TypeSwitch<Adapter> modelSwitch = new TypeSwitch<>() {
+	protected TypeSwitch<Adapter> modelSwitch = new TypeSwitch<Adapter>() {
 
 		@Override
 		public Adapter caseAreaSeries(AreaSeries object) {

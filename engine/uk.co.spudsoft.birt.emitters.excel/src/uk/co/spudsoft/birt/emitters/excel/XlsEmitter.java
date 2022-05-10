@@ -51,8 +51,7 @@ public class XlsEmitter extends ExcelEmitter {
 
 	@Override
 	protected Workbook openWorkbook(File templateFile) throws IOException {
-		InputStream stream = new FileInputStream(templateFile);
-		try (stream) {
+		try (InputStream stream = new FileInputStream(templateFile)) {
 			return new HSSFWorkbook(stream);
 		}
 	}

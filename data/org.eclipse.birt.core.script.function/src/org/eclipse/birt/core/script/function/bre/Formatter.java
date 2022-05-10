@@ -42,7 +42,7 @@ public class Formatter implements IScriptFunctionExecutor {
 	 * utilities used in the report execution.
 	 */
 
-	private ThreadLocal<HashMap<String, StringFormatter>> stringFormatters = new ThreadLocal<>() {
+	private ThreadLocal<HashMap<String, StringFormatter>> stringFormatters = new ThreadLocal<HashMap<String, StringFormatter>>() {
 
 		@Override
 		protected HashMap<String, StringFormatter> initialValue() {
@@ -50,7 +50,7 @@ public class Formatter implements IScriptFunctionExecutor {
 		}
 	};
 
-	private ThreadLocal<HashMap<String, NumberFormatter>> numberFormatters = new ThreadLocal<>() {
+	private ThreadLocal<HashMap<String, NumberFormatter>> numberFormatters = new ThreadLocal<HashMap<String, NumberFormatter>>() {
 
 		@Override
 		protected HashMap<String, NumberFormatter> initialValue() {
@@ -58,7 +58,7 @@ public class Formatter implements IScriptFunctionExecutor {
 		}
 	};
 
-	private ThreadLocal<HashMap<String, DateFormatter>> dateFormatters = new ThreadLocal<>() {
+	private ThreadLocal<HashMap<String, DateFormatter>> dateFormatters = new ThreadLocal<HashMap<String, DateFormatter>>() {
 
 		@Override
 		protected HashMap<String, DateFormatter> initialValue() {

@@ -46,8 +46,7 @@ public class SvgFile {
 	}
 
 	public static byte[] transSvgToArray(String uri) throws Exception {
-		InputStream in = new URL(uri).openStream();
-		try (in) {
+		try (InputStream in = new URL(uri).openStream()) {
 			return transSvgToArray(in);
 		}
 	}

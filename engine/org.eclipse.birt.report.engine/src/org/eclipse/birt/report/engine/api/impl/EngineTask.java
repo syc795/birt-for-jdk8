@@ -1999,8 +1999,7 @@ public abstract class EngineTask implements IEngineTask {
 			}
 
 			ClassLoader loader = document.getClassLoader();
-			RAInputStream in = dataSource.getInputStream(ReportDocumentConstants.CONTENT_STREAM);
-			try (in) {
+			try (RAInputStream in = dataSource.getInputStream(ReportDocumentConstants.CONTENT_STREAM)) {
 				ReportContentReaderV3 reader = new ReportContentReaderV3(new ReportContent(), in, loader);
 				try {
 					LinkedList<InstanceID> iids = new LinkedList<>();

@@ -1093,8 +1093,7 @@ public class BirtUtility {
 			return;
 		}
 
-		FileInputStream in = new FileInputStream(file);
-		try (in) {
+		try (FileInputStream in = new FileInputStream(file)) {
 			byte[] buf = new byte[512];
 			int len = 0;
 			while ((len = in.read(buf)) > 0) {

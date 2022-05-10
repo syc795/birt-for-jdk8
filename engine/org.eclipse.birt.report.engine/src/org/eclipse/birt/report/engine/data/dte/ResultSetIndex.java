@@ -57,7 +57,7 @@ public class ResultSetIndex {
 
 	private static class ResultSets {
 
-		static Comparator<ResultSetEntry> comparator = new Comparator<>() {
+		static Comparator<ResultSetEntry> comparator = new Comparator<ResultSetEntry>() {
 
 			@Override
 			public int compare(ResultSetEntry e1, ResultSetEntry e2) {

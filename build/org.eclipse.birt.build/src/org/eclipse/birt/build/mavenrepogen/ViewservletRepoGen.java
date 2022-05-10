@@ -123,8 +123,7 @@ public class ViewservletRepoGen {
 			passphrase = args[1];
 		}
 		final Properties properties = new Properties();
-		final FileReader fr = new FileReader(propsFileName);
-		try (fr) {
+		try (final FileReader fr = new FileReader(propsFileName)) {
 			properties.load(fr);
 		}
 		final String libDirName = properties.getProperty("viewservletsDir");
@@ -420,8 +419,7 @@ public class ViewservletRepoGen {
 	}
 
 	private Manifest getManifest(final File file) throws IOException {
-		final ZipInputStream zis = new ZipInputStream(new FileInputStream(file));
-		try (zis) {
+		try (final ZipInputStream zis = new ZipInputStream(new FileInputStream(file))) {
 			ZipEntry entry = zis.getNextEntry();
 			while (entry != null) {
 				// read the manifest to determine the name and version number
@@ -439,8 +437,7 @@ public class ViewservletRepoGen {
 			final List<FileInfo> dependsOn, final Collection<ExternalDependency> externalDependencies)
 			throws IOException {
 		final String artifactName = fileInfo.getFile().getName();
-		final PrintWriter pw = new PrintWriter(new FileWriter(pomFile));
-		try (pw) {
+		try (final PrintWriter pw = new PrintWriter(new FileWriter(pomFile))) {
 			pw.println("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
 			pw.print("<project");
 			pw.print(" xsi:schemaLocation=\"");
@@ -522,8 +519,7 @@ public class ViewservletRepoGen {
 
 	private void createAntFile(final File antFile, final File pomFile, final String artifactId, final File jarFile,
 			final boolean snapshot, final File sourceFile, final File javadocFile) throws IOException {
-		final PrintWriter pw = new PrintWriter(new FileWriter(antFile));
-		try (pw) {
+		try (final PrintWriter pw = new PrintWriter(new FileWriter(antFile))) {
 			pw.print("<project name=\"");
 			pw.print(artifactId);
 			pw.print("\" default=\"");
@@ -709,8 +705,7 @@ public class ViewservletRepoGen {
 
 	private void copy(final File sourceFile, final File destinationFile) throws IOException {
 		destinationFile.createNewFile();
-		final FileInputStream fis = new FileInputStream(sourceFile);
-		try (fis) {
+		try (final FileInputStream fis = new FileInputStream(sourceFile)) {
 			final FileOutputStream fos = new FileOutputStream(destinationFile);
 			try {
 				final byte[] buffer = new byte[0x4000];

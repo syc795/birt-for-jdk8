@@ -98,7 +98,7 @@ public class DataAdapterFactory extends AdapterFactoryImpl {
 	 *
 	 * @generated
 	 */
-	protected DataSwitch<Adapter> modelSwitch = new DataSwitch<>() {
+	protected DataSwitch<Adapter> modelSwitch = new DataSwitch<Adapter>() {
 
 		@Override
 		public Adapter caseAction(Action object) {

@@ -90,7 +90,7 @@ public class ComponentAdapterFactory extends AdapterFactoryImpl {
 	 *
 	 * @generated
 	 */
-	protected ComponentSwitch<Adapter> modelSwitch = new ComponentSwitch<>() {
+	protected ComponentSwitch<Adapter> modelSwitch = new ComponentSwitch<Adapter>() {
 
 		@Override
 		public Adapter caseAxis(Axis object) {

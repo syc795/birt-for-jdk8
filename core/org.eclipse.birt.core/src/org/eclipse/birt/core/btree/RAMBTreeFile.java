@@ -90,8 +90,7 @@ public class RAMBTreeFile implements NodeFile {
 
 	public void read(String file) throws IOException {
 		blocks.clear();
-		RandomAccessFile rf = new RandomAccessFile(file, "r");
-		try (rf) {
+		try (RandomAccessFile rf = new RandomAccessFile(file, "r")) {
 			int blockCount = (int) (rf.length() / BLOCK_SIZE);
 			byte[] block = new byte[BLOCK_SIZE];
 			for (int i = 0; i < blockCount; i++) {
@@ -115,8 +114,7 @@ public class RAMBTreeFile implements NodeFile {
 	}
 
 	public void write(String file) throws IOException {
-		RandomAccessFile rf = new RandomAccessFile(file, "w");
-		try (rf) {
+		try (RandomAccessFile rf = new RandomAccessFile(file, "w")) {
 			int blockCount = blocks.size();
 			for (int i = 0; i < blockCount; i++) {
 				byte[] block = (byte[]) blocks.get(i);

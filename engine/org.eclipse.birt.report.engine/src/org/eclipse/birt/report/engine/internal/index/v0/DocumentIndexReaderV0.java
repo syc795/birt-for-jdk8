@@ -50,8 +50,7 @@ public class DocumentIndexReaderV0 implements IDocumentIndexReader, ReportDocume
 
 	private HashMap<String, Long> loadIndexStream(IDocArchiveReader archive, String streamName) throws IOException {
 		HashMap<String, Long> map = new HashMap<>();
-		RAInputStream in = archive.getStream(streamName);
-		try (in) {
+		try (RAInputStream in = archive.getStream(streamName)) {
 			DataInputStream di = new DataInputStream(in);
 			long count = IOUtil.readLong(di);
 			for (long i = 0; i < count; i++) {

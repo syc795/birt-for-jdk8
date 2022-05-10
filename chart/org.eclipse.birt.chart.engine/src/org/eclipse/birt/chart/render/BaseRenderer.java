@@ -221,7 +221,7 @@ public abstract class BaseRenderer implements ISeriesRenderer {
 	private static final ILogger logger = Logger.getLogger("org.eclipse.birt.chart.engine/render"); //$NON-NLS-1$
 
 	/** The comparator compares the order of SeriesDefinition objects. */
-	static Comparator<SeriesDefinition> zOrderComparatorImpl = new Comparator<>() {
+	static Comparator<SeriesDefinition> zOrderComparatorImpl = new Comparator<SeriesDefinition>() {
 
 		@Override
 		public int compare(SeriesDefinition o1, SeriesDefinition o2) {
@@ -233,7 +233,7 @@ public abstract class BaseRenderer implements ISeriesRenderer {
 	};
 
 	/** The comparator compares the order of BaseRender objects. */
-	static Comparator<BaseRenderer> zOrderComparator = new Comparator<>() {
+	static Comparator<BaseRenderer> zOrderComparator = new Comparator<BaseRenderer>() {
 
 		@Override
 		public int compare(BaseRenderer o1, BaseRenderer o2) {

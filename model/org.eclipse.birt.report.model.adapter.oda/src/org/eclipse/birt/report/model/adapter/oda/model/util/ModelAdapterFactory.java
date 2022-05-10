@@ -83,7 +83,7 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 *
 	 * @generated
 	 */
-	protected ModelSwitch<Adapter> modelSwitch = new ModelSwitch<>() {
+	protected ModelSwitch<Adapter> modelSwitch = new ModelSwitch<Adapter>() {
 		@Override
 		public Adapter caseDataSetParameter(DataSetParameter object) {
 			return createDataSetParameterAdapter();

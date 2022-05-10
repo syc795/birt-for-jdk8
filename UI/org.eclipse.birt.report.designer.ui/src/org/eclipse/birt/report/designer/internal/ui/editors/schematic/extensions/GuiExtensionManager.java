@@ -142,7 +142,7 @@ public class GuiExtensionManager {
 		List list = root.getChildren();
 		List exts = ExtensionPointManager.getInstance().getExtendedElementPoints();
 
-		Comparator<CombinedTemplateCreationEntry> entryComparator = new Comparator<>() {
+		Comparator<CombinedTemplateCreationEntry> entryComparator = new Comparator<CombinedTemplateCreationEntry>() {
 
 			@Override
 			public int compare(CombinedTemplateCreationEntry o1, CombinedTemplateCreationEntry o2) {

@@ -21,14 +21,14 @@ public class DataEngineThreadLocal {
 		return local;
 	}
 
-	private ThreadLocal<CloseListenerManager> closeHolder = new ThreadLocal<>() {
+	private ThreadLocal<CloseListenerManager> closeHolder = new ThreadLocal<CloseListenerManager>() {
 		@Override
 		protected CloseListenerManager initialValue() {
 			return new CloseListenerManager();
 		}
 	};
 
-	private ThreadLocal<TempPathManager> pathManager = new ThreadLocal<>() {
+	private ThreadLocal<TempPathManager> pathManager = new ThreadLocal<TempPathManager>() {
 		@Override
 		protected TempPathManager initialValue() {
 			return new TempPathManager();

@@ -418,8 +418,7 @@ public class ArchiveUtil {
 				zipFiles(zipOut, dirFiles, tempFolderPath);
 			} else { // if file is a file, create a new ZipEntry and write out the
 						// file.
-				BufferedInputStream in = new BufferedInputStream(new FileInputStream(file));
-				try (in) {
+				try (BufferedInputStream in = new BufferedInputStream(new FileInputStream(file))) {
 					String relativePath = getEntryName(tempFolderPath, file.getPath());
 					ZipEntry entry = new ZipEntry(relativePath);
 					try {
@@ -519,8 +518,7 @@ public class ArchiveUtil {
 		List<String> streamList = reader.listAllStreams();
 		for (int i = 0; i < streamList.size(); i++) {
 			String streamPath = streamList.get(i);
-			RAInputStream in = reader.getStream(streamPath);
-			try (in) {
+			try (RAInputStream in = reader.getStream(streamPath)) {
 				RAOutputStream out = writer.createRandomAccessStream(streamPath);
 				try {
 					copyStream(in, out);
@@ -576,8 +574,7 @@ public class ArchiveUtil {
 			if (targetStreamPath == IDENTITY_MAPPING) {
 				targetStreamPath = srcStreamPath;
 			}
-			RAInputStream in = reader.getStream(srcStreamPath);
-			try (in) {
+			try (RAInputStream in = reader.getStream(srcStreamPath)) {
 				RAOutputStream out = writer.createRandomAccessStream(targetStreamPath);
 				try {
 					copyStream(in, out);

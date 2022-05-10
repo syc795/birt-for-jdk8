@@ -1009,7 +1009,7 @@ public class ChartCubeQueryHelper {
 	}
 
 	private Comparator<ILevelDefinition> getLevelComparator(final CubeHandle cubeHandle, final boolean hasDiffEdges) {
-		return new Comparator<>() {
+		return new Comparator<ILevelDefinition>() {
 
 			@Override
 			public int compare(ILevelDefinition a, ILevelDefinition b) {
